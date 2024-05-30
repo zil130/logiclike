@@ -1,0 +1,34 @@
+.tagsList {
+  min-width: 264px;
+  padding: 12px;
+  border: 1px solid #CFCFE4;
+  border-radius: 18px;
+  list-style: none;
+}
+
+.btn {
+  width: 100%;
+  min-height: 42px;
+  padding: 12px;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  color: #39414B;
+  cursor: pointer;
+
+  &:hover {
+    padding: 11px;
+    border: 1px solid #5FBF77;
+    border-radius: 12px;
+  }
+
+  &.active {
+    background-color: #5FBF77;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: default;
+  }
+}

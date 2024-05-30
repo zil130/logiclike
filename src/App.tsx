@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import ICourse from './types/ICourse';
+import Sidebar from './Sidebar/Sidebar';
+import './App.scss';
 
 const App: FC = () => {
   const [courses, setCourses] = useState<ICourse[]>([]);
@@ -38,8 +40,11 @@ const App: FC = () => {
     <>
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
-      {courses.length > 0 && console.log(courses)}
-      {courses.length > 0 && console.log(tags)}
+      {courses.length > 0 &&
+        <div className='App'>
+          <Sidebar tags={tags} />
+        </div>
+      }
     </>
   );
 };
