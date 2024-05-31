@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ICourse from '../types/ICourse';
+import ICourse from '../../types/ICourse';
 import CourseItem from '../CourseItem/CourseItem';
 import styles from './CourseList.module.scss';
 

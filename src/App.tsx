@@ -1,7 +1,7 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 import ICourse from './types/ICourse';
-import Sidebar from './Sidebar/Sidebar';
-import CourseList from './CourseList/CourseList';
+import Sidebar from './components/Sidebar/Sidebar';
+import CourseList from './components/CourseList/CourseList';
 import './App.scss';
 
 const App: FC = () => {
