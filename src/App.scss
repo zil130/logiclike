@@ -1,5 +1,5 @@
 .App {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 264px 1fr;
   gap: 24px;
 }

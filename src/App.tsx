@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import ICourse from './types/ICourse';
 import Sidebar from './Sidebar/Sidebar';
+import CourseList from './CourseList/CourseList';
 import './App.scss';
 
 const App: FC = () => {
@@ -43,6 +44,7 @@ const App: FC = () => {
       {courses.length > 0 &&
         <div className='App'>
           <Sidebar tags={tags} />
+          <CourseList courses={courses}  />
         </div>
       }
     </>

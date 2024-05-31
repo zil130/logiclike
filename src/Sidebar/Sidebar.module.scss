@@ -1,6 +1,6 @@
 .tagsList {
-  min-width: 264px;
-  padding: 12px;
+  padding: 11px;
+  align-self: start;
   border: 1px solid #CFCFE4;
   border-radius: 18px;
   list-style: none;
@@ -9,7 +9,7 @@
 .btn {
   width: 100%;
   min-height: 42px;
-  padding: 12px;
+  padding: 0 12px;
   font-family: "Nunito", sans-serif;
   font-size: 18px;
   font-weight: 800;
@@ -20,7 +20,7 @@
   cursor: pointer;
 
   &:hover {
-    padding: 11px;
+    padding: 0 11px;
     border: 1px solid #5FBF77;
     border-radius: 12px;
   }
