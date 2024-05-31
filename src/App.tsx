@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import ICourse from './types/ICourse';
 import Sidebar from './Sidebar/Sidebar';
 import CourseList from './CourseList/CourseList';
@@ -8,6 +8,7 @@ const App: FC = () => {
   const [courses, setCourses] = useState<ICourse[]>([]);
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [activeTag, setActiveTag] = useState<string>('Все темы');
 
   const fetchCourses = async () => {
     setIsLoading(true);
@@ -32,10 +33,21 @@ const App: FC = () => {
     fetchCourses();
   }, []);
 
-  const tags = [...courses.reduce((acc, course) => {
-    course.tags.forEach(tag => acc.add(tag));
-    return acc;
-  }, new Set<string>())];
+  const tags = [
+    'Все темы',
+    ...Array.from(new Set(courses.flatMap(course => course.tags))),
+  ];
+
+  const filteredCourses = useMemo(() => {
+    if (activeTag === 'Все темы') {
+      return courses;
+    }
+    return courses.filter((course) => course.tags.includes(activeTag));
+  }, [activeTag, courses]);
+
+  const handleActiveTag = (tag: string) => {
+    setActiveTag(tag);
+  };
 
   return (
     <>
@@ -43,8 +55,12 @@ const App: FC = () => {
       {error && <div>{error}</div>}
       {courses.length > 0 &&
         <div className='App'>
-          <Sidebar tags={tags} />
-          <CourseList courses={courses}  />
+          <Sidebar
+            tags={tags}
+            activeTag={activeTag}
+            handleActiveTag={handleActiveTag}
+          />
+          <CourseList courses={filteredCourses} />
         </div>
       }
     </>
